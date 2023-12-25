@@ -394,8 +394,6 @@ function invertCase(str) {
   }
   return b;
 }
-const b = invertCase('Hello World');
-console.log(b);
 
 /**
  * Returns the result of string template and given parameters firstName and lastName.
@@ -415,7 +413,6 @@ function getStringFromTemplate(firstName, lastName) {
   const v = lastName;
   return `Hello ${a}, ${v}!`;
 }
-console.log(getStringFromTemplate('firstName', 'lastName'));
 
 /**
  * Extracts a name from template string 'Hello, First_Name Last_Name!'.
