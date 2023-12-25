@@ -20,8 +20,9 @@
  *   getStringLength(undefined) => 0
  */
 function getStringLength(value) {
-  return value.length
-} console.log(getStringLength(value));
+  const r = value || [];
+  return r.length;
+}
 
 /**
  * Returns true if the value is a string, otherwise returns false.
@@ -38,13 +39,12 @@ function getStringLength(value) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  if (typeof value ==='string'){
-    return true
-  } 
-    else {
-    return false
+  if (typeof value === 'string') {
+    return true;
   }
-} console.log(isString(value));
+
+  return false;
+}
 
 /**
  * Returns the result of concatenation of two strings.
@@ -58,9 +58,9 @@ function isString(value) {
  *   concatenateStrings('aa', '') => 'aa'.
  *   concatenateStrings('', 'bb') => 'bb'
  */
-function concatenateStrings(value1,value2) {
-  return(value1+value2);
-} console.log(concatenateStrings(value));
+function concatenateStrings(value1, value2) {
+  return value1 + value2;
+}
 
 /**
  * Returns the first character of the given string.
@@ -75,7 +75,7 @@ function concatenateStrings(value1,value2) {
  */
 function getFirstChar(value) {
   return value.charAt(0);
-} console.log(getFirstChar(value));
+}
 
 /**
  * Removes leading and trailing whitespace characters from the string.
@@ -90,7 +90,7 @@ function getFirstChar(value) {
  */
 function removeLeadingAndTrailingWhitespaces(value) {
   return value.trim();
-} console.log(removeLeadingAndTrailingWhitespaces(value));
+}
 
 /**
  * Removes only leading whitespace characters from the string.
@@ -105,7 +105,7 @@ function removeLeadingAndTrailingWhitespaces(value) {
  */
 function removeLeadingWhitespaces(value) {
   return value.trimStart();
-} console.log(removeLeadingWhitespaces(value));
+}
 
 /**
  * Removes only trailing whitespace characters from the string.
@@ -120,7 +120,7 @@ function removeLeadingWhitespaces(value) {
  */
 function removeTrailingWhitespaces(value) {
   return value.trimEnd();
-} console.log(removeTrailingWhitespaces(value));
+}
 
 /**
  * Returns a string that is repeated the specified number of times.
@@ -137,7 +137,7 @@ function removeTrailingWhitespaces(value) {
  */
 function repeatString(str, times) {
   return str.repeat(times);
-} console.log(repeatString(str));
+}
 
 /**
  * Remove the first occurrence of a substring from a string.
@@ -152,8 +152,8 @@ function repeatString(str, times) {
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
 function removeFirstOccurrences(str, value) {
-  return removeFirst = str.replace('value','');
-} console.log(removeFirstOccurrences(str));
+  return str.replace(value, '');
+}
 
 /**
  * Remove the last occurrence of a substring from a string.
@@ -168,10 +168,10 @@ function removeFirstOccurrences(str, value) {
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
 function removeLastOccurrences(str, value) {
-  var a = str.split("").reverse().join("");
-  var b = value.split("").reverse().join("");
-  return remove = a.replace(b,'').split("").reverse("").join("");
-} console.log(removeLastOccurrences(str,value));
+  const a = str.split('').reverse().join('');
+  const b = value.split('').reverse().join('');
+  return a.replace(b, '').split('').reverse('').join('');
+}
 /**
  * Calculate the sum of character codes of the given string.
  *
@@ -184,13 +184,9 @@ function removeLastOccurrences(str, value) {
  *   sumOfCodes('') => 0
  *   sumOfCodes() => 0
  */
-function sumOfCodes(str) { 
-    var sum = 0;
-    var str = 'str'
-    return str.split('').forEach(function (SUMMA) {
-        sum+=str.charCodeAt(0);
-        console.log(sum);
-    })};
+function sumOfCodes(/* str */) {
+  throw new Error('Not implemented');
+}
 
 /**
  * Checks if a string starts with a specific substring.
@@ -205,7 +201,7 @@ function sumOfCodes(str) {
  */
 function startsWith(str, substr) {
   return str.startsWith(substr);
-} console.log(startsWith(str,substr));
+}
 
 /**
  * Checks if a string ends with a specific substring.
@@ -220,7 +216,7 @@ function startsWith(str, substr) {
  */
 function endsWith(str, substr) {
   return str.endsWith(substr);
-} console.log(endsWith(str,substr));
+}
 
 /**
  * Returns a time string in the "mm:ss" format.
@@ -236,10 +232,16 @@ function endsWith(str, substr) {
  *   formatTime(0, 0) => "00:00"
  */
 function formatTime(minutes, seconds) {
-  if (minutes<10){minutes='0'+minutes;}
-  if (seconds<10){seconds='0'+seconds;}
-return (minutes+':'+seconds);
-} console.log(formatTime(minutes,seconds));
+  let min = null;
+  let sec = null;
+  if (minutes < 10) {
+    min = `0${minutes}`;
+  }
+  if (seconds < 10) {
+    sec = `0${seconds}`;
+  }
+  return `${min}:${sec}`;
+}
 
 /**
  * Returns a string in reverse order.
@@ -252,8 +254,8 @@ return (minutes+':'+seconds);
  *   reverseString('12345') => '54321'
  */
 function reverseString(str) {
-  return str.split("").reverse().join("")
-} console.log (reverseString(str));
+  return str.split('').reverse().join('');
+}
 
 /**
  * Returns a string with characters in alphabetical order.
@@ -267,8 +269,8 @@ function reverseString(str) {
  *   orderAlphabetically('abc123xyz') => '123abcxyz'
  */
 function orderAlphabetically(str) {
-  return str.split("").sort().join("");
-} console.log(orderAlphabetically(str));
+  return str.split('').sort().join('');
+}
 
 /**
  * Checks if a given string contains a specified substring.
@@ -284,7 +286,7 @@ function orderAlphabetically(str) {
  */
 function containsSubstring(str, substring) {
   return str.includes(substring);
-} console.log(containsSubstring(str,substring));
+}
 
 /**
  * Returns the number of vowels in the string.
@@ -301,8 +303,8 @@ function containsSubstring(str, substring) {
  *   countVowels('XYZ') => 1
  */
 function countVowels(str) {
-  return str.replace(/[^aeiou]/gi,"").length;
-} console.log(countVowels(str));
+  return str.replace(/[^aeiou]/gi, '').length;
+}
 
 /**
  * Returns true if the string is a palindrome; otherwise false.
@@ -318,15 +320,14 @@ function countVowels(str) {
  *   isPalindrome('No lemon, no melon') => true
  */
 function isPalindrome(str) {
-    var b = /[^A-Za-z0-9]/g;
-    var a = str.toLowerCase().replace(b,'');
-    var i = a.split("").reverse().join("");
-    if (a === i) { 
-        return true 
-         }
-    else {return false
-    }
-} console.log(isPalindrome(str));
+  const b = /[^A-Za-z0-9]/g;
+  const a = str.toLowerCase().replace(b, '');
+  const i = a.split('').reverse().join('');
+  if (a === i) {
+    return true;
+  }
+  return false;
+}
 
 /**
  * Find the longest word in the sentence. If there are multiple longest words,
@@ -341,16 +342,18 @@ function isPalindrome(str) {
  *   findLongestWord('No words here') => 'words'
  */
 function findLongestWord(sentence) {
- var sentence = sentence.split(" ");
- var b = null; 
- for ( var i = 0; i<sentence.length; i++){
-  if (b< sentence[i].length){
-    b=sentence[i].length;
-    word = sentence[i];
+  let c = null;
+  let word = null;
+  c = sentence.split(' ');
+  let b = null;
+  for (let i = 0; i < c.length; i += 1) {
+    if (b < c[i].length) {
+      b = c[i].length;
+      word = c[i];
+    }
   }
- }
- return word;
-} console.log(longestWord(sentence));
+  return word;
+}
 
 /**
  * Returns the string where each word is reversed.
@@ -363,10 +366,9 @@ function findLongestWord(sentence) {
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
 function reverseWords(str) {
-  var a = str.split(" ").reverse().join(" ");
-  return a.split("").reverse().join("");
-} console.log(removeFirstOccurrences(str));
-
+  const a = str.split(' ').reverse().join(' ');
+  return a.split('').reverse().join('');
+}
 
 /**
  * Inverts the case of each character in the given string.
@@ -380,18 +382,20 @@ function reverseWords(str) {
  *   invertCase('12345') => '12345'
  */
 function invertCase(str) {
-  var b="";
-  for (var i=0;i<str.length;i++){
-      var a=str.charAt(i);
-      if (a===a.toUpperCase()){
-          a=a.toLowerCase();
-      } else{
-          a=a.toUpperCase();
-      } b+=a;
-  } return b;
-} var b = invertCase('Hello World');
+  let b = '';
+  for (let i = 0; i < str.length; i += 1) {
+    let a = str.charAt(i);
+    if (a === a.toUpperCase()) {
+      a = a.toLowerCase();
+    } else {
+      a = a.toUpperCase();
+    }
+    b += a;
+  }
+  return b;
+}
+const b = invertCase('Hello World');
 console.log(b);
-
 
 /**
  * Returns the result of string template and given parameters firstName and lastName.
@@ -407,11 +411,11 @@ console.log(b);
  *   getStringFromTemplate('Chuck','Norris') => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-  const a=firstName;
-  const b=lastName;
-    return (`Hello ${a}, ${b}!`);
+  const a = firstName;
+  const v = lastName;
+  return `Hello ${a}, ${v}!`;
 }
-console.log(getStringFromTemplate('firstName','lastName'));
+console.log(getStringFromTemplate('firstName', 'lastName'));
 
 /**
  * Extracts a name from template string 'Hello, First_Name Last_Name!'.
@@ -423,7 +427,7 @@ console.log(getStringFromTemplate('firstName','lastName'));
  *   extractNameFromTemplate('Hello, John Doe!') => 'John Doe'
  *   extractNameFromTemplate('Hello, Chuck Norris!') => 'Chuck Norris'
  */
-function extractNameFromTemplate(value) {
+function extractNameFromTemplate(/* value */) {
   throw new Error('Not implemented');
 }
 
