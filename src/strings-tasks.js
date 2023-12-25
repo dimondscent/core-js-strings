@@ -167,11 +167,11 @@ function removeFirstOccurrences(str, value) {
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences(str, value) {
+function removeLastOccurrences(str, value) {
   var a = str.split("").reverse().join("");
   var b = value.split("").reverse().join("");
   return remove = a.replace(b,'').split("").reverse("").join("");
-} console.log(removeFirstOccurrences(str,value));
+} console.log(removeLastOccurrences(str,value));
 /**
  * Calculate the sum of character codes of the given string.
  *
@@ -424,7 +424,7 @@ console.log(getStringFromTemplate('firstName','lastName'));
  *   extractNameFromTemplate('Hello, Chuck Norris!') => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-  
+  throw new Error('Not implemented');
 }
 
 /**
